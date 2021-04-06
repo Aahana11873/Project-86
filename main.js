@@ -7,7 +7,7 @@ player_y = 10;
 var player_object = "";
 var block_image_object = "";
 function player_update() {
-    fabric.Image.fromURL("https://i.pinimg.com/736x/b2/63/91/b26391122f35c5d8b7f42189726ebd6c.jpg", function (Img) {
+    fabric.Image.fromURL("player.jpg", function (Img) {
         player_object = Img;
         player_object.scaleToWidth(150);
         player_object.scaleToHeight(140);
@@ -104,4 +104,53 @@ function my_keydown(e) {
         new_image("https://i.pinimg.com/564x/9b/76/75/9b767505f5a5df3df348a898ba4ae8bb.jpg");
         console.log("c");
     }
+}
+
+
+function up() {
+    if (player_y >= 0) {
+        player_y = player_y - block_image_height;
+        console.log("block image height = " + block_image_height);
+        console.log("when up arrow key is pressed, X = " + player_x + "  Y= " + player_y);
+        canvas.remove(player_object);
+        player_update();
+
+    }
+
+}
+
+function down() {
+    if (player_y <= 500) {
+        player_y = player_y + block_image_height;
+        console.log("block image height = " + block_image_height);
+        console.log("when down arrow key is pressed, X = " + player_x + "  Y= " + player_y);
+        canvas.remove(player_object);
+        player_update();
+
+    }
+
+}
+
+function left() {
+    if (player_x > 0) {
+        player_x = player_x - block_image_width;
+        console.log("block image width = " + block_image_width);
+        console.log("when left arrow key is pressed, X = " + player_x + "  Y= " + player_y);
+        canvas.remove(player_object);
+        player_update();
+
+    }
+
+}
+
+function right() {
+    if (player_x <= 850) {
+        player_x = player_x + block_image_width;
+        console.log("block image width = " + block_image_width);
+        console.log("when right arrow key is pressed, X = " + player_x + "  Y= " + player_y);
+        canvas.remove(player_object);
+        player_update();
+
+    }
+
 }
